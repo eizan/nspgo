@@ -34,7 +34,7 @@ $no=0;
 			echo 	'
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di tambah</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di tambah
 					</div>
 					';
 		}
@@ -42,7 +42,7 @@ $no=0;
 			echo 	'
 					<div class="alert alert-info">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di Update</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di Update
 					</div>
 					';
 		}
@@ -50,7 +50,7 @@ $no=0;
 			echo 	'
 					<div class="alert alert-primary">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di Delete</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di Delete
 					</div>
 					';
 		}

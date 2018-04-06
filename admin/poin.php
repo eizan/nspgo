@@ -5,9 +5,15 @@ include '../include/nav.php';
 require '../include/database.php';
 ?>
 <?php
+// unutk melihat list poin
 $mhs_nim = $_GET["mhs_nim"];
 $sql_poin = "select * from tbl_poin where mhs_nim in (select mhs_nim from tbl_mhs where mhs_nim=$mhs_nim)";
 $hasil_sql_poin = mysqli_query($conn,$sql_poin);
+
+// untuk melihat data mahasiswa
+$sql_mhs = "SELECT mhs_nama FROM tbl_mhs WHERE mhs_nim = '$mhs_nim'";
+$hasil_mhs = mysqli_fetch_assoc(mysqli_query($conn,$sql_mhs));
+
 $no = 0;
 ?>
 <!-- Breadcrumbs-->
@@ -26,7 +32,7 @@ $no = 0;
 <div class="card mb-3">
 	<div class="card-header">
 		<i class="fa fa-table"></i>
-		Poin yang didapat oleh NIM&nbsp;<?php echo $mhs_nim; ?>
+		Poin yang didapat oleh&nbsp;<strong><?php echo $hasil_mhs['mhs_nama']; ?></strong>
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">

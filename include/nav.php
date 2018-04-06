@@ -54,7 +54,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fa fa-user"> <?php echo $_SESSION['nama']; ?> (<?php echo $_SESSION['akses_level']; ?>)</i></a>
+        <a href="#" class="nav-link"><i class="fa fa-user"></i> <?php echo $_SESSION['nama']; ?> (<?php echo $_SESSION['akses_level']; ?>)</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">

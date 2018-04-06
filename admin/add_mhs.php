@@ -14,9 +14,17 @@ require '../include/database.php';
 	$status 	= isset($_POST['status']) ? mysqli_real_escape_string($conn, $_POST['status']) : '';
 	$keterangan 	= isset($_POST['keterangan']) ? mysqli_real_escape_string($conn, $_POST['keterangan']) : '';
 if (isset($_POST['save'])) {
-	$query = "INSERT INTO $table (mhs_nim, mhs_no_nspgo, mhs_nama, mhs_jurusan, mhs_status, mhs_semester, mhs_keterangan) VALUES ('$nim','$no_nspgo', '$nama', '$jurusan', '$status', '$semester', '$keterangan')";
-	$result = mysqli_query($conn, $query);
-	header('Location: table_mhs.php?add');
+	// mengecek apaa ada duplicate
+	$query_cek = "SELECT * FROM tbl_mhs WHERE mhs_nim = '$nim'";
+	$hasil_cek = mysqli_query($conn,$query_cek);
+	$hasil_cek_row = mysqli_num_rows($hasil_cek);
+	if ($hasil_cek_row) {
+		header('Location: '.$_SERVER["PHP_SELF"].'?error_nim');
+	}else{
+		$query = "INSERT INTO $table (mhs_nim, mhs_no_nspgo, mhs_nama, mhs_jurusan, mhs_status, mhs_semester, mhs_keterangan) VALUES ('$nim','$no_nspgo', '$nama', '$jurusan', '$status', '$semester', '$keterangan')";
+		$result = mysqli_query($conn, $query);
+		header('Location: table_mhs.php?add');
+	}
 }
 
 ?>
@@ -33,10 +41,22 @@ if (isset($_POST['save'])) {
 </ol>
 <!-- End of Breadcrumbs-->
 <div class="card">
+			
 	<div class="card-header">
 	<i class="fa fa-table"></i>&nbsp;Tambah Data Mahasiswa</div>
 	<form method="post" action="add_mhs.php">
 		<div class="card-body">
+			<?php
+			// menampilkan pesan yang sukses atau gagal di tambah 
+			if (isset($_GET['error_nim'])) {
+				echo 	'
+						<div class="alert alert-danger">
+							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				 			<i class="fa fa-warning"></i> <strong>NIM</strong> sudah ada !!
+						</div>
+						';
+			}
+			?>
 			<!-- nim input-->
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label" for="nim">NIM</label>

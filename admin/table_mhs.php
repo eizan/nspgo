@@ -26,7 +26,7 @@ include '../include/database.php';
 			echo 	'
 					<div class="alert alert-success">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di tambah</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di tambah
 					</div>
 					';
 		}
@@ -34,7 +34,7 @@ include '../include/database.php';
 			echo 	'
 					<div class="alert alert-info">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di Update</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di Update
 					</div>
 					';
 		}
@@ -42,7 +42,7 @@ include '../include/database.php';
 			echo 	'
 					<div class="alert alert-primary">
 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			 			<i class="fa fa-check"> Data Berhasil di Delete</i>
+			 			<i class="fa fa-check"></i> Data Berhasil di Delete
 					</div>
 					';
 		}
@@ -60,7 +60,7 @@ include '../include/database.php';
 					<tr>
 						<th>No</th>
 						<th>NIM</th>
-						<th>No NSPGO</th>
+						<!-- <th>No NSPGO</th> -->
 						<th>Nama</th>
 						<th>Jurusan</th>
 						<th>Status</th>
@@ -76,7 +76,6 @@ include '../include/database.php';
 					<tr class="odd gradeX">
 						<td><?php echo $no ?></td>
 						<td><?php echo $row["mhs_nim"]; ?></td>
-						<td><?php echo $row["mhs_no_nspgo"]; ?></td>
 						<td><a href="detail_mhs.php?mhs_id=<?php echo $row["mhs_id"]; ?>"><span class="fa fa-user"></span> <?php echo $row["mhs_nama"]; ?></a></td>
 						<td class="center"><?php echo $row["mhs_jurusan"]; ?></td>
 						<td class="center">

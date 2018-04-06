@@ -35,13 +35,13 @@ $row = mysqli_fetch_array($result);
 	<li class="breadcrumb-item">
 		<a href="table_mhs.php">Mahasiswa</a>
 	</li>
-	<li class="breadcrumb-item active">Edit Mahasiswa <?php echo $nim; ?></li>
+	<li class="breadcrumb-item active"><?php echo $row['mhs_nama']; ?></li>
 </ol>
 <!-- End of Breadcrumbs-->
 
 <div class="card mb-1">
 	<div class="card-header">
-		<i class="fa fa-table"></i> Edit Mahasiswa</div>
+		<i class="fa fa-table"></i> Edit Mahasiswa : <strong><?php echo $row['mhs_nama']; ?></strong></div>
 		<div class="card-body">
 
 			<form class="form-horizontal" method="post">
