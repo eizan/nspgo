@@ -62,7 +62,6 @@ include '../include/mysqli_class.php';
 							<th>No</th>
 							<th>Nama</th>
 							<th>Jurusan</th>
-							<th>Asal Sekolah</th>
 							<th>Status</th>
 							<th>Pembawa</th>
 							<th>Option</th>
@@ -77,15 +76,16 @@ include '../include/mysqli_class.php';
 								<td><?php echo $no ?></td>
 								<td><a href="detail_poin.php?poin_id=<?php echo $output['poin_id']; ?>"><span class="fa fa-users"></span> <?php echo $output['poin_nama']; ?></a></td>
 								<td><?php echo $output['poin_jurusan']; ?></td>
-								<td><?php echo $output['poin_asal_sekolah']; ?></td>
 								<td>
 									<?php
 									$status = $output['poin_status'];
-									if ($status == "Aktif") {
+									if ($status === "Aktif") {
 										echo'<span class="badge badge-primary">'.$status.'</span>';
-									} elseif ($status = "Tidak Aktif") {
+									} elseif ($status === "Tidak Aktif") {
 										echo'<span class="badge badge-danger">'.$status.'</span>';
-									} else {
+									} elseif ($status === "Dipakai") {
+										echo'<span class="badge badge-info">'.$status.'</span>';
+									}else {
 										echo'<span class="badge badge-default">'.$status.'</span>';
 									}
 									?>

@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Title of the document</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</head>
- 
-<?php
-  $dataPoints = array(
-  array("y" => 6, "label" => "Apple"),
-  array("y" => 4, "label" => "Mango"),
-  array("y" => 5, "label" => "Orange"),
-  array("y" => 7, "label" => "Banana"),
-  array("y" => 4, "label" => "Pineapple"),
-  array("y" => 6, "label" => "Pears"),
-  array("y" => 7, "label" => "Grapes"),
-  array("y" => 5, "label" => "Lychee"),
-  array("y" => 4, "label" => "Jackfruit")
-  );
-?>
- 
-<body>
-<div id="chartContainer"></div>
- 
-<script type="text/javascript">
- 
-$(function () {
-var chart = new CanvasJS.Chart("chartContainer", {
-  animationEnabled: true,
-  title: {
-    text: "Basic Column Chart using CanvasJS"
-  },
-  data: [
-  {
-    type: "column",                
-    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-  }
-  ]
-});
-chart.render();
-});
-</script>
-</body>
- 
-</html>
+<table border="1">
+  <tr>
+    <th rowspan="2">NO.</th>
+    <th rowspan="2">NIM</th>
+    <th rowspan="2">NO NSPGO</th>
+    <th rowspan="2">NAMA LENGKAP</th>
+    <th rowspan="2">JURUSAN</th>
+    <th rowspan="2">SEMESTER</th>
+    <th rowspan="2">STATUS</th>
+    <th rowspan="2">KETERANGAN</th>   
+    <th colspan="6">POIN</th>
+  </tr>
+  <tr>
+      <th>NO</th>
+      <th>NIM</th>
+      <th>NAMA</th>
+      <th>JURUSAN</th>
+      <th>ASAL SEKOLAH</th>
+      <th>STATUS</th>
+  </tr>
+      <tr>
+      <td rowspan="2">1</td>
+      <td rowspan="2">4</td>
+      <td rowspan="2">14153036</td>
+      <td rowspan="2">Yudi Asy'ari</td>
+      <td rowspan="2">Teknik Mesin</td>
+      <td rowspan="2"></td>
+      <td rowspan="2">Aktif</td>
+      <td rowspan="2"></td>
+      
+        <td>1</td>
+        <td>dasdas</td>
+        <td>Aulida Ardini</td>
+        <td>SI (Minggu)</td>
+        <td>SMK Terpadu Ibaadurahman</td>
+        <td>Aktif</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>dasdas</td>
+        <td>Aulida Ardini</td>
+        <td>SI (Minggu)</td>
+        <td>SMK Terpadu Ibaadurahman</td>
+        <td>Aktif</td>
+      </tr>

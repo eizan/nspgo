@@ -44,15 +44,25 @@ $res = $db->getResult();
 					<td><?php echo $row['poin_jurusan']; ?></td>
 				</tr>
 				<tr>
+					<td>Kelas</td>
+					<td><?php echo $row['poin_kelas']; ?></td>
+				</tr>
+				<tr>
+					<td>Semester</td>
+					<td><?php echo $row['poin_semester']; ?></td>
+				</tr>
+				<tr>
 					<td>Status</td>
 					<td>
 						<?php
 						$status = $row['poin_status'];
 						if ($status == "Aktif") {
 							echo'<span class="badge badge-primary">'.$status.'</span>';
-						} elseif ($status = "Tidak Aktif") {
+						} elseif ($status == "Tidak Aktif") {
 							echo'<span class="badge badge-danger">'.$status.'</span>';
-						} else {
+						} elseif ($status == "Dipakai") {
+							echo'<span class="badge badge-info">'.$status.'</span>';
+						}else {
 							echo'<span class="badge badge-default">'.$status.'</span>';
 						}
 						?>
@@ -62,11 +72,15 @@ $res = $db->getResult();
 					<td>Poin dari</td>
 					<td>
 						<?php
-						$mhs_nim_mhs = $row['mhs_nim'];
-						$db->sql("SELECT * from tbl_mhs where mhs_nim in (select mhs_nim from tbl_poin where mhs_nim=$mhs_nim_mhs)");
-						$res2 = $db->getResult();
-						foreach ($res2 as $output2) {
-						echo '<a href="poin.php?mhs_nim='.$mhs_nim_mhs.'"><span class="fa fa-user"></span> '.$output2['mhs_nama'].'</a>';
+						if($row['mhs_nim']){
+							$mhs_nim_mhs = $row['mhs_nim'];
+							$db->sql("SELECT * from tbl_mhs where mhs_nim in (select mhs_nim from tbl_poin where mhs_nim=$mhs_nim_mhs)");
+							$res2 = $db->getResult();
+							foreach ($res2 as $output2) {
+								echo '<a href="poin.php?mhs_nim='.$mhs_nim_mhs.'"><span class="fa fa-user"></span> '.$output2['mhs_nama'].'</a>';
+							}
+						}else{
+							echo "Tidak ada pembawa";
 						}
 						?>
 					</td>

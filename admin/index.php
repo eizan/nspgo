@@ -84,6 +84,7 @@ $jumlah_admin = mysqli_num_rows($hasil_admin);
       </a>
     </div>
   </div>
+  <?php if($_SESSION['akses_level'] == 'Admin'){ ?>
   <div class="col-xl-3 col-sm-6 mb-3">
     <div class="card text-white bg-danger o-hidden h-100">
       <div class="card-body">
@@ -100,6 +101,7 @@ $jumlah_admin = mysqli_num_rows($hasil_admin);
       </a>
     </div>
   </div>
+  <?php   } ?>
 </div>
 
 <?php

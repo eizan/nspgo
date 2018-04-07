@@ -4,7 +4,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Version Beta 1.0 Develop by <a href="http://instagram.com/ikhsan.thohir">Eizan</a></small>
+          <small>Version Beta 1.5 Develop by <a href="http://instagram.com/ikhsan.thohir">Eizan</a></small>
         </div>
       </div>
     </footer>

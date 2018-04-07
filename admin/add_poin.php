@@ -5,15 +5,18 @@ include '../include/nav.php';
 require '../include/database.php';
 ?>
 <?php
-$table = 'tbl_poin';
-$nim = isset($_POST['nim']) ? mysqli_real_escape_string($conn, $_POST['nim']) : '';
-$mhs_nim = isset($_POST['mhs_nama']) ? mysqli_real_escape_string($conn, $_POST['mhs_nama']) : '';
-$nama = isset($_POST['nama']) ? mysqli_real_escape_string($conn, $_POST['nama']) : '';
-$jurusan = isset($_POST['jurusan']) ? mysqli_real_escape_string($conn, $_POST['jurusan']) : '';
-$status = isset($_POST['status']) ? mysqli_real_escape_string($conn, $_POST['status']) : '';
-$asal_sekolah = isset($_POST['asal_sekolah']) ? mysqli_real_escape_string($conn, $_POST['asal_sekolah']) : '';
+$table 			= 'tbl_poin';
+$nim 			= isset($_POST['nim']) ? mysqli_real_escape_string($conn, $_POST['nim']) : '';
+$mhs_nim 		= isset($_POST['mhs_nama']) ? mysqli_real_escape_string($conn, $_POST['mhs_nama']) : '';
+$nama 			= isset($_POST['nama']) ? mysqli_real_escape_string($conn, $_POST['nama']) : '';
+$jurusan 		= isset($_POST['jurusan']) ? mysqli_real_escape_string($conn, $_POST['jurusan']) : '';
+$kelas 			= isset($_POST['kelas']) ? mysqli_real_escape_string($conn, $_POST['kelas']) : '';
+$semester 		= isset($_POST['semester']) ? mysqli_real_escape_string($conn, $_POST['semester']) : '';
+$status 		= isset($_POST['status']) ? mysqli_real_escape_string($conn, $_POST['status']) : '';
+$keterangan 	= isset($_POST['keterangan']) ? mysqli_real_escape_string($conn, $_POST['keterangan']) : '';
+$asal_sekolah 	= isset($_POST['asal_sekolah']) ? mysqli_real_escape_string($conn, $_POST['asal_sekolah']) : '';
 if (isset($_POST['save'])) {
-	$query = "INSERT INTO $table (mhs_nim, poin_nim, poin_asal_sekolah, poin_nama, poin_jurusan, poin_status) VALUES ('$mhs_nim', '$nim','$asal_sekolah', '$nama', '$jurusan', '$status')";
+	$query = "INSERT INTO $table (mhs_nim, poin_nim, poin_asal_sekolah, poin_nama, poin_jurusan, poin_status, poin_keterangan, poin_kelas, poin_semester) VALUES ('$mhs_nim', '$nim','$asal_sekolah', '$nama', '$jurusan', '$status','$keterangan','$kelas','$semester')";
 	$result = mysqli_query($conn, $query);
 	header('Location: table_poin.php?add');
 }
@@ -40,12 +43,12 @@ if (isset($_POST['save'])) {
 			<div class="form-group row">
 				<label class="col-md-4 control-label" for="mhs_nim">Mahasiswa yang Membawa</label>
 				<div class="col-md-4">
-					<select class="mhs_nama form-control" name="mhs_nama"></select>
+					<select class="mhs_nama form-control" name="mhs_nama" required></select>
 				</div>
 			</div>
 			<!-- Text input-->
 			<div class="form-group row">
-				<label class="col-md-4 control-label" for="nim">NIM</label>
+				<label class="col-md-4 control-label" for="nim">NIM <small class="text-danger">* isi jika ada</small></label>
 				<div class="col-md-4">
 					<input id="nim" name="nim" type="number" placeholder="NIM" class="form-control input-md">
 				</div>
@@ -78,6 +81,24 @@ if (isset($_POST['save'])) {
 					</select>
 				</div>
 			</div>
+			<!-- Kelas -->
+			<div class="form-group row">
+				<label class="col-md-4 control-label" for="kelas">Kelas</label>
+				<div class="col-md-4">
+					<select id="kelas" name="kelas" class="form-control">
+						<option value="Reguler">Reguler</option>
+						<option value="Karyawan Sabtu">Karyawan (Sabtu)</option>
+						<option value="Karyawan Minggu">Karyawan (Minggu)</option>
+					</select>
+				</div>
+			</div>
+			<!-- Semester-->
+			<div class="form-group row">
+				<label class="col-md-4 control-label" for="semester">Semester</label>
+				<div class="col-md-6">
+					<input id="semester" name="semester" type="text" placeholder="Semester" class="form-control input-md">
+				</div>
+			</div>
 			<!-- Select Basic -->
 			<div class="form-group row">
 				<label class="col-md-4 control-label" for="status">Status</label>
@@ -85,7 +106,15 @@ if (isset($_POST['save'])) {
 					<select id="status" name="status" class="form-control">
 						<option value="Aktif">Aktif</option>
 						<option value="Tidak Aktif">Tidak Aktif</option>
+						<option value="Dipakai">Dipakai</option>
 					</select>
+				</div>
+			</div>
+			<!-- Select Basic -->
+			<div class="form-group row">
+				<label class="col-md-4 control-label" for="status">Keterangan</label>
+				<div class="col-md-6">
+					<textarea class="form-control" name="keterangan"></textarea>
 				</div>
 			</div>
 		</div>
@@ -102,22 +131,6 @@ if (isset($_POST['save'])) {
 	</form>
 </div>
 
-<script type="text/javascript">
-      $('.mhs_nama').select2({
-        placeholder: 'Select an item',
-        ajax: {
-          url: 'data_mhs.php',
-          dataType: 'json',
-          delay: 250,
-          processResults: function (data) {
-            return {
-              results: data
-            };
-          },
-          cache: true
-        }
-      });
-</script>
 <?php
 include '../include/footer.php';
 ?>

@@ -7,33 +7,30 @@ include '../include/database.php';
 
 ?>
 <?php
-//set variable dari value
+	//set variable dari value
 $poin_id 			= $_GET['poin_id'];
 $table 				= 'tbl_poin';
 $poin_asal_sekolah 	= isset($_POST['poin_asal_sekolah']) ? mysqli_real_escape_string($conn, $_POST['poin_asal_sekolah']) : '';
 $mhs_nim			= isset($_POST['mhs_nama']) ? mysqli_real_escape_string($conn, $_POST['mhs_nama']) : '';
 $poin_nama 			= isset($_POST['poin_nama']) ? mysqli_real_escape_string($conn, $_POST['poin_nama']) : '';
 $poin_jurusan 		= isset($_POST['poin_jurusan']) ? mysqli_real_escape_string($conn, $_POST['poin_jurusan']) : '';
-$poin_kelas 		= isset($_POST['poin_kelas']) ? mysqli_real_escape_string($conn, $_POST['poin_kelas']) : '';
-$poin_semester		= isset($_POST['poin_semester']) ? mysqli_real_escape_string($conn, $_POST['poin_semester']) : '';
 $poin_status 		= isset($_POST['poin_status']) ? mysqli_real_escape_string($conn, $_POST['poin_status']) : '';
 $poin_keterangan 	= isset($_POST['poin_keterangan']) ? mysqli_real_escape_string($conn, $_POST['poin_keterangan']) : '';
 
-// mengecek ketika tombol update di tekan
+	// mengecek ketika tombol update di tekan
 if(isset($_POST['update'])) {
 
-// jika nim mahasiswa di isi maka lakukan penyimpanan dengan nim mahasiswa yang di ganti
+	// jika nim mahasiswa di isi maka lakukan penyimpanan dengan nim mahasiswa yang di ganti
 	if (empty($mhs_nim)) {
 		$query_update = "UPDATE $table SET poin_asal_sekolah='$poin_asal_sekolah', poin_nama='$poin_nama', poin_jurusan='$poin_jurusan', poin_status='$poin_status', poin_keterangan='$poin_keterangan', poin_kelas='$poin_kelas', poin_semester='$poin_semester' WHERE poin_id=$poin_id";
 	}
-// jika tidak ada nim mahasiswa di isi maka lakuakan simpan tanpa mengganti nim mhs 
+	// jika tidak ada nim mahasiswa di isi maka lakuakan simpan tanpa mengganti nim mhs 
 	else{
 		$query_update = "UPDATE $table SET mhs_nim='$mhs_nim',poin_asal_sekolah='$poin_asal_sekolah', poin_nama='$poin_nama', poin_jurusan='$poin_jurusan', poin_status='$poin_status', poin_keterangan='$poin_keterangan', poin_kelas='$poin_kelas', poin_semester='$poin_semester' WHERE poin_id=$poin_id";
 	}
-
-// simpan ke database berdasarkan query if diatas
+		// simpan ke database berdasarkan query if diatas
 	$result_update = mysqli_query($conn, $query_update);
-	header('Location: table_poin.php?update');
+	header('Location: poin.php?mhs_nim='.$mhs_nim);
 } 
 
 // melakukan query untuk melihat value yang akan di edit
@@ -87,7 +84,7 @@ $row = mysqli_fetch_array($result);
 						<input id="poin_asal_sekolah" name="poin_asal_sekolah" type="text" placeholder="Asal Sekolah" class="form-control input-md" required="" value="<?php echo $row['poin_asal_sekolah']; ?>">
 					</div>
 				</div>
-
+				
 				<!-- Jurusan -->
 				<div class="form-group row">
 					<label class="col-md-4 control-label" for="poin_jurusan">Jurusan</label>
@@ -103,15 +100,7 @@ $row = mysqli_fetch_array($result);
 						</select>
 					</div>
 				</div>
-
-				<!-- Semester -->
-				<div class="form-group row">
-					<label class="col-md-4 control-label" for="poin_semester">Semester</label>
-					<div class="col-md-4">
-						<input id="poin_semester" name="poin_semester" type="text" placeholder="Semester" class="form-control input-md" required="" value="<?php echo $row['poin_semester']; ?>">
-					</div>
-				</div>
-
+				
 				<!-- Kelas -->
 				<div class="form-group row">
 					<label class="col-md-4 control-label" for="poin_kelas">Kelas</label>
@@ -124,7 +113,6 @@ $row = mysqli_fetch_array($result);
 						</select>
 					</div>
 				</div>
-
 				<!-- Status -->
 				<div class="form-group row">
 					<label class="col-md-4 control-label" for="poin_status">Status</label>

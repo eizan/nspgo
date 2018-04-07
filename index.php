@@ -41,7 +41,7 @@ require('include/database.php');
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #E65100;
+    background-color: #a90063;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -53,11 +53,11 @@ require('include/database.php');
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #E65100;
+    color: #a90063;
     font-size: 50px;
   }
   .logo {
-    color: #E65100;
+    color: #a90063;
     font-size: 200px;
   }
   .thumbnail {
@@ -72,13 +72,13 @@ require('include/database.php');
   }
   .carousel-control.right, .carousel-control.left {
     background-image: none;
-    color: #E65100;
+    color: #a90063;
   }
   .carousel-indicators li {
-    border-color: #E65100;
+    border-color: #a90063;
   }
   .carousel-indicators li.active {
-    background-color: #E65100;
+    background-color: #a90063;
   }
   .item h4 {
     font-size: 19px;
@@ -91,7 +91,7 @@ require('include/database.php');
     font-style: normal;
   }
   .panel {
-    border: 1px solid #E65100; 
+    border: 1px solid #a90063; 
     border-radius:0 !important;
     transition: box-shadow 0.5s;
   }
@@ -99,13 +99,13 @@ require('include/database.php');
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
   .panel-footer .btn:hover {
-    border: 1px solid #E65100;
+    border: 1px solid #a90063;
     background-color: #fff !important;
-    color: #E65100;
+    color: #a90063;
   }
   .panel-heading {
     color: #fff !important;
-    background-color: #E65100 !important;
+    background-color: #a90063 !important;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -125,12 +125,12 @@ require('include/database.php');
   }
   .panel-footer .btn {
     margin: 15px 0;
-    background-color: #E65100;
+    background-color: #a90063;
     color: #fff;
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #E65100;
+    background-color: #a90063;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -143,7 +143,7 @@ require('include/database.php');
     color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #E65100 !important;
+    color: #a90063 !important;
     background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
@@ -153,7 +153,7 @@ require('include/database.php');
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #E65100;
+    color: #a90063;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -257,7 +257,7 @@ require('include/database.php');
 
         ?>
         <br>
-        <div class="alert alert-success">
+        <div class="alert alert-info">
         <p><b><?php echo $row["mhs_nama"]; ?></b><br><?php echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample">Poin&nbsp;<span class="badge">'.$jumlah_poin.'</span></button>' ; ?>
         </p>
           <div class="collapse" id="collapseExample">

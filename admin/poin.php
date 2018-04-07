@@ -67,16 +67,19 @@ $no = 0;
 							$status = $row["poin_status"];
 							if ($status == "Aktif") {
 								echo'<span class="badge badge-primary">'.$status.'</span>';
-							} elseif ($status = "Tidak Aktif") {
+							} elseif ($status == "Tidak Aktif") {
 								echo'<span class="badge badge-danger">'.$status.'</span>';
-							} else {
+							} elseif ($status == "Dipakai") {
+								echo'<span class="badge badge-info">'.$status.'</span>';
+							}else {
 								echo'<span class="badge badge-default">'.$status.'</span>';
 							}
 							?>
 						</td>
 						<td>
-							<a class="btn btn-success" href="edit_poin.php?poin_id=<?php echo $row['poin_id']; ?>"><span class="fa fa-fw fa-edit"></span></a>
+							<a class="btn btn-success" href="edit_mhs_poin.php?poin_id=<?php echo $row['poin_id']; ?>"><span class="fa fa-fw fa-edit"></span></a>
 							<a class="btn btn-danger" data-toggle="modal" data-target="#deletePoinModal<?php echo $row['poin_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span></a>
+
 							<!-- Delete Poin Modal-->
 							<div class="modal fade" id="deletePoinModal<?php echo $row['poin_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
 								<div class="modal-dialog" role="document">
@@ -96,6 +99,7 @@ $no = 0;
 								</div>
 							</div>
 							<!-- Wnd Of Delete Poin Modal-->
+							
 						</td>
 					</tr>
 					<?php
