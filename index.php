@@ -41,7 +41,7 @@ require('include/database.php');
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #a90063;
+    background-color: #f4511e;
     color: #fff;
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
@@ -53,11 +53,11 @@ require('include/database.php');
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #a90063;
+    color: #f4511e;
     font-size: 50px;
   }
   .logo {
-    color: #a90063;
+    color: #f4511e;
     font-size: 200px;
   }
   .thumbnail {
@@ -72,13 +72,13 @@ require('include/database.php');
   }
   .carousel-control.right, .carousel-control.left {
     background-image: none;
-    color: #a90063;
+    color: #f4511e;
   }
   .carousel-indicators li {
-    border-color: #a90063;
+    border-color: #f4511e;
   }
   .carousel-indicators li.active {
-    background-color: #a90063;
+    background-color: #f4511e;
   }
   .item h4 {
     font-size: 19px;
@@ -91,7 +91,7 @@ require('include/database.php');
     font-style: normal;
   }
   .panel {
-    border: 1px solid #a90063; 
+    border: 1px solid #f4511e; 
     border-radius:0 !important;
     transition: box-shadow 0.5s;
   }
@@ -99,13 +99,13 @@ require('include/database.php');
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
   .panel-footer .btn:hover {
-    border: 1px solid #a90063;
+    border: 1px solid #f4511e;
     background-color: #fff !important;
-    color: #a90063;
+    color: #f4511e;
   }
   .panel-heading {
     color: #fff !important;
-    background-color: #a90063 !important;
+    background-color: #f4511e !important;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -125,12 +125,12 @@ require('include/database.php');
   }
   .panel-footer .btn {
     margin: 15px 0;
-    background-color: #a90063;
+    background-color: #f4511e;
     color: #fff;
   }
   .navbar {
     margin-bottom: 0;
-    background-color: #a90063;
+    background-color: #f4511e;
     z-index: 9999;
     border: 0;
     font-size: 12px !important;
@@ -143,7 +143,7 @@ require('include/database.php');
     color: #fff !important;
   }
   .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #a90063 !important;
+    color: #f4511e !important;
     background-color: #fff !important;
   }
   .navbar-default .navbar-toggle {
@@ -153,7 +153,7 @@ require('include/database.php');
   footer .glyphicon {
     font-size: 20px;
     margin-bottom: 20px;
-    color: #a90063;
+    color: #f4511e;
   }
   .slideanim {visibility:hidden;}
   .slide {
