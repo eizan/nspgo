@@ -55,7 +55,7 @@ include '../include/database.php';
 			if (mysqli_num_rows($result) > 0) {
 				$no = 0;
 			?>
-			<table class="table table-bordered table-sm text-nowrap" id="dataTable" width="100%" cellspacing="0">
+			<table class="table table-bordered table-sm text-nowrap" id="dataTable" cellspacing="0">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -63,9 +63,9 @@ include '../include/database.php';
 						<!-- <th>No NSPGO</th> -->
 						<th>Nama</th>
 						<th>Jurusan</th>
-						<th>Status</th>
-						<th>Poin</th>
-						<th>Option</th>
+						<th width="5%">Status</th>
+						<th width="5%">Poin</th>
+						<th width="5%">Option</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -97,18 +97,18 @@ include '../include/database.php';
 							$result_poin_query = mysqli_query($conn,$sql_poin);
 							$total_poin = mysqli_num_rows($result_poin_query);
 							?>
-							<a class="btn btn-info" href="poin.php?mhs_nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-eye"></span> <?php echo $total_poin; ?></a>
+							<a class="btn btn-info btn-sm" href="poin.php?mhs_nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-eye"></span> <?php echo $total_poin; ?></a>
 							<?php
 							// update poin ke database
 							// $mhs_nim = $row['mhs_nim'];
 							// $sql_update_poin = "UPDATE tbl_mhs set mhs_poin=$total_poin where mhs_nim=$mhs_nim_poin";
 							// mysqli_query($conn,$sql_update_poin);
 							?>
-							<a class="btn btn-primary" href="add_mhs_poin.php?mhs_nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-plus"></span></a>
+							<a class="btn btn-primary btn-sm" href="add_mhs_poin.php?mhs_nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-plus"></span></a>
 						</td>
 						<td class="text-center">
-							<a class="btn btn-success" href="edit_mhs.php?nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-edit"></span></a>
-							<a class="btn btn-danger" data-toggle="modal" data-target="#deleteMhsModal<?php echo $row['mhs_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span></a>
+							<a class="btn btn-success btn-sm" href="edit_mhs.php?nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-edit"></span></a>
+							<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteMhsModal<?php echo $row['mhs_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span></a>
 							<!-- Delete Modal-->
 							<div class="modal fade" id="deleteMhsModal<?php echo $row['mhs_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
 								<div class="modal-dialog" role="document">

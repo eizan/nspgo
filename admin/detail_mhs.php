@@ -46,6 +46,10 @@ $hasil = mysqli_query($conn,$query);
 					<td><?php echo $row['mhs_jurusan']; ?></td>
 				</tr>
 				<tr>
+					<td>Kelas</td>
+					<td><?php echo $row['mhs_kelas']; ?></td>
+				</tr>
+				<tr>
 					<td>Semester</td>
 					<td><?php echo $row['mhs_semester']; ?></td>
 				</tr>				
@@ -86,7 +90,7 @@ $hasil = mysqli_query($conn,$query);
 			?>
 		</div>
 		<div class="card-footer">
-			<button class="btn btn-info" onclick="goBack()"><span class="fa fa-arrow-left"></span> Kembali</button>
+			<a href="table_mhs.php" class="btn btn-info" ><span class="fa fa-arrow-left"></span> Kembali</a>
 			<a class="btn btn-success" href="edit_mhs.php?nim=<?php echo $row['mhs_nim']; ?>"><span class="fa fa-fw fa-edit"></span> Edit</a>
 			<a class="btn btn-danger" data-toggle="modal" data-target="#deleteMhsModal<?php echo $row['mhs_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span> Hapus</a>
 			<!-- Delete Modal-->

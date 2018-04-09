@@ -56,7 +56,7 @@ include '../include/mysqli_class.php';
 			$no = 0;
 			if ($res) {
 				?>
-				<table class="table table-bordered table-sm text-nowrap" id="dataTable" width="100%" cellspacing="0">
+				<table class="table table-bordered table-sm text-nowrap" id="dataTable" cellspacing="0">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -64,7 +64,7 @@ include '../include/mysqli_class.php';
 							<th>Jurusan</th>
 							<th>Status</th>
 							<th>Pembawa</th>
-							<th>Option</th>
+							<th width="5%">Option</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -110,8 +110,8 @@ include '../include/mysqli_class.php';
 									?>
 								</td>
 								<td>
-									<a href="edit_poin.php?poin_id=<?php echo $output['poin_id']; ?>" class="btn btn-info"><span class="fa fa-pencil"></span></a>
-									<a class="btn btn-danger" data-toggle="modal" data-target="#deletePoinModal<?php echo $output['poin_id']; ?>" href=""><span class="fa fa-remove"></span></a>
+									<a href="edit_poin.php?poin_id=<?php echo $output['poin_id']; ?>" class="btn btn-info btn-sm"><span class="fa fa-pencil"></span></a>
+									<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deletePoinModal<?php echo $output['poin_id']; ?>" href=""><span class="fa fa-remove"></span></a>
 									<!-- Delete Poin Modal-->
 									<div class="modal fade" id="deletePoinModal<?php echo $output['poin_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
 										<div class="modal-dialog" role="document">

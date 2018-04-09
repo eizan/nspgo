@@ -29,7 +29,7 @@ $no = 0;
 		<?php
 		if ($res) {
 		?>
-		<table class="table table-responsive text-nowrap" id="dataTable">
+		<table class="table table-responsive text-nowrap">
 			<thead>
 				<tr>
 					<th>No</th>
@@ -50,10 +50,10 @@ $no = 0;
 					<td><?php echo $row["admin_username"]; ?> <strong>(<?php echo $row["admin_akses_level"]; ?>)</strong></td>
 					<td><?php echo $row["admin_keterangan"]; ?></td>
 					<td>
-						<a href="edit_admin.php?admin_id=<?php echo $row['admin_id']; ?>" class="btn btn-info"><span class="fa fa-gear"></span> Reset</a>
+						<a href="edit_admin.php?admin_id=<?php echo $row['admin_id']; ?>" class="btn btn-info btn-sm"><span class="fa fa-gear"></span> Reset</a>
 						<?php
 						if ($num_res > 1) {
-						echo '<a href="delete_admin.php?admin_id='.$row["admin_id"].'" class="btn btn-danger"><span class="fa fa-remove"></span></a>';
+						echo '<a href="delete_admin.php?admin_id='.$row["admin_id"].'" class="btn btn-danger btn-sm"><span class="fa fa-remove"></span> Hapus</a>';
 						}
 						
 						?>

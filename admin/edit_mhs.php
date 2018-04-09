@@ -11,10 +11,11 @@ $no_nspgo 	= isset($_POST['no_nspgo']) ? mysqli_real_escape_string($conn, $_POST
 $nama 		= isset($_POST['nama']) ? mysqli_real_escape_string($conn, $_POST['nama']) : '';
 $jurusan 	= isset($_POST['jurusan']) ? mysqli_real_escape_string($conn, $_POST['jurusan']) : '';
 $semester 	= isset($_POST['semester']) ? mysqli_real_escape_string($conn, $_POST['semester']) : '';
+$kelas 			= isset($_POST['semester']) ? mysqli_real_escape_string($conn, $_POST['kelas']) : '';
 $status 	= isset($_POST['status']) ? mysqli_real_escape_string($conn, $_POST['status']) : '';
 $keterangan = isset($_POST['keterangan']) ? mysqli_real_escape_string($conn, $_POST['keterangan']) : '';
 if(isset($_POST['update'])) {
-	$query_update = "UPDATE $table SET mhs_no_nspgo='$no_nspgo', mhs_nama='$nama', mhs_jurusan='$jurusan', mhs_status='$status' , mhs_semester='$semester' , mhs_keterangan='$keterangan' WHERE mhs_nim=$nim";
+	$query_update = "UPDATE $table SET mhs_no_nspgo='$no_nspgo', mhs_nama='$nama', mhs_jurusan='$jurusan', mhs_status='$status' , mhs_semester='$semester' , mhs_keterangan='$keterangan', mhs_kelas='$kelas' WHERE mhs_nim=$nim";
 	$result_update = mysqli_query($conn, $query_update);
 	$query = "SELECT * FROM $table WHERE mhs_nim=$nim";
 	$result = mysqli_query($conn, $query);
@@ -79,6 +80,18 @@ $row = mysqli_fetch_array($result);
 								<option value="Teknik Elektro">Teknik Elektro</option>
 								<option value="Teknik Sipil">Teknik Sipil</option>
 								<option value="Teknik Mesin">Teknik Mesin</option>
+							</select>
+						</div>
+					</div>
+					<!-- Kelas -->
+					<div class="form-group row">
+						<label class="col-md-4 control-label" for="kelas">Kelas</label>
+						<div class="col-md-4">
+							<select id="kelas" name="kelas" class="form-control">
+								<option value="<?php echo $row['mhs_kelas']; ?>"><?php echo $row['mhs_kelas']; ?></option>
+								<option value="Reguler">Reguler</option>
+								<option value="Karyawan Sabtu">Karyawan (Sabtu)</option>
+								<option value="Karyawan Minggu">Karyawan (Minggu)</option>
 							</select>
 						</div>
 					</div>

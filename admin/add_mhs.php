@@ -2,7 +2,7 @@
 define('TITLE', 'Tambah Mahasiswa - NSPGO ONLINE');
 include '../include/header.php';
 include '../include/nav.php';
-require '../include/database.php';
+include '../include/database.php';
 ?>
 <?php
 	$table 		= 'tbl_mhs';
@@ -11,6 +11,7 @@ require '../include/database.php';
 	$nama 		= isset($_POST['nama']) ? mysqli_real_escape_string($conn, $_POST['nama']) : '';
 	$jurusan 	= isset($_POST['jurusan']) ? mysqli_real_escape_string($conn, $_POST['jurusan']) : '';
 	$semester 	= isset($_POST['semester']) ? mysqli_real_escape_string($conn, $_POST['semester']) : '';
+	$kelas 		= isset($_POST['semester']) ? mysqli_real_escape_string($conn, $_POST['kelas']) : '';
 	$status 	= isset($_POST['status']) ? mysqli_real_escape_string($conn, $_POST['status']) : '';
 	$keterangan 	= isset($_POST['keterangan']) ? mysqli_real_escape_string($conn, $_POST['keterangan']) : '';
 if (isset($_POST['save'])) {
@@ -21,7 +22,7 @@ if (isset($_POST['save'])) {
 	if ($hasil_cek_row) {
 		header('Location: '.$_SERVER["PHP_SELF"].'?error_nim');
 	}else{
-		$query = "INSERT INTO $table (mhs_nim, mhs_no_nspgo, mhs_nama, mhs_jurusan, mhs_status, mhs_semester, mhs_keterangan) VALUES ('$nim','$no_nspgo', '$nama', '$jurusan', '$status', '$semester', '$keterangan')";
+		$query = "INSERT INTO $table (mhs_nim, mhs_no_nspgo, mhs_nama, mhs_jurusan, mhs_status, mhs_semester, mhs_keterangan, mhs_kelas) VALUES ('$nim','$no_nspgo', '$nama', '$jurusan', '$status', '$semester', '$keterangan','$kelas')";
 		$result = mysqli_query($conn, $query);
 		header('Location: table_mhs.php?add');
 	}
@@ -89,6 +90,17 @@ if (isset($_POST['save'])) {
 						<option value="Teknik Elektro">Teknik Elektro</option>
 						<option value="Teknik Sipil">Teknik Sipil</option>
 						<option value="Teknik Mesin">Teknik Mesin</option>
+					</select>
+				</div>
+			</div>
+			<!-- Kelas -->
+			<div class="form-group row">
+				<label class="col-md-3 control-label" for="kelas">Kelas</label>
+				<div class="col-md-4">
+					<select id="kelas" name="kelas" class="form-control">
+						<option value="Reguler">Reguler</option>
+						<option value="Karyawan Sabtu">Karyawan (Sabtu)</option>
+						<option value="Karyawan Minggu">Karyawan (Minggu)</option>
 					</select>
 				</div>
 			</div>

@@ -58,13 +58,13 @@ $no=0;
 		<?php
 		if ($res) {
 		?>
-		<table class="table table-responsive table-sm text-nowrap" id="dataTable">
+		<table class="table table-responsive table-sm text-nowrap" id="dataTable" cellspacing="0">
 			<thead>
 				<tr>
 					<th>No</th>
 					<th>Negara</th>
 					<th>Poin</th>
-					<th>Option</th>
+					<th width="5%">Option</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -77,8 +77,8 @@ $no=0;
 					<td><span class="flag-icon flag-icon-<?php echo $row["negara_kode"]; ?>"></span> <?php echo $row["negara_nama"]; ?></td>
 					<td><?php echo $row["negara_poin"]; ?></td>
 					<td>
-						<a class="btn btn-success" href="edit_negara.php?negara_id=<?php echo $row['negara_id']; ?>"><span class="fa fa-fw fa-edit"></span></a>
-						<a class="btn btn-danger" data-toggle="modal" data-target="#deleteNegaraModal<?php echo $row['negara_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span></a>
+						<a class="btn btn-success btn-sm" href="edit_negara.php?negara_id=<?php echo $row['negara_id']; ?>"><span class="fa fa-fw fa-edit"></span></a>
+						<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteNegaraModal<?php echo $row['negara_id']; ?>" href=""><span class="fa fa-fw fa-remove"></span></a>
 						<!-- Delete Negara Modal-->
 						<div class="modal fade" id="deleteNegaraModal<?php echo $row['negara_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
 							<div class="modal-dialog" role="document">
